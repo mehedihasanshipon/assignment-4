@@ -47,3 +47,9 @@ document.getElementById('bookButton').addEventListener('click',function(){
     const confirmArea = document.getElementById('confirm-area');
     confirmArea.style.display = 'block';
 })
+document.getElementById('confirmButton').addEventListener('click',function(){
+    const ticketArea = document.getElementById('ticket-area');
+    ticketArea.style.display = 'block';
+    const confirmArea = document.getElementById('confirm-area');
+    confirmArea.style.display = 'none';
+})
