@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Ticket</title>
+    <!-- Bootstrap CDN
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">   -->
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
+      
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -38,79 +41,112 @@
         <div class="booking-form">
             <h3>Explore By Bus</h3>
 
-            <div class="inputs">
-                <div class="input-group">
-                    <label" for="">From</label>
-                    <input class="inp-style" type="text" name="" placeholder="Dhaka">
+           <div id="ticket-area">
+                <div class="inputs">
+                    <div class="input-group">
+                        <label" for="">From</label>
+                        <input class="inp-style" type="text" name="" placeholder="Dhaka">
+                    </div>
+                    <div class="input-group">
+                        <label" for="">From</label>
+                        <input class="inp-style" type="text" name="" placeholder="Chittagong">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label" for="">From</label>
-                    <input class="inp-style" type="text" name="" placeholder="Chittagone">
-                </div>
-            </div>
 
-            <div class="inputs">
-                <div class="input-group">
-                    <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                <div class="inputs">
+                    <div class="input-group">
+                        <label" for="">Departure</label>
+                        <input class="inp-style" type="date" name="">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Return</label>
+                        <input class="inp-style" type="date" name="">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
-                </div>
-            </div>
-            <div class="inputs">
-                <div class="input-group f-class">
-                <div>
-                    <label for="">First Class ($150)</label>
-                    <input id="firstClassTicket" class="inp-style inp-width" value="0" type="number" min="0"  name="">
-                </div>
-                <div class="plus-minus-btn">
-                    <button onclick="ticketQuantityChange(true , 'firstClassTicket')" class="plus-btn"><span>+</span></button>
-                    <button onclick="ticketQuantityChange(false , 'firstClassTicket');" class="plus-btn"><span>-</span></button>
-                </div>
-            </div>
-                <div class="input-group f-class">
+                <div class="inputs">
+                    <div class="input-group f-class">
                     <div>
-                        <label for="">Economy ($100)</label>
-                        <input id="economyClassTicket" class="inp-style inp-width" value="0" type="number" min="0" name="">
+                        <label for="">First Class ($150)</label>
+                        <input id="firstClassTicket" class="inp-style inp-width" value="0" type="number" min="0"  name="">
                     </div>
                     <div class="plus-minus-btn">
-                        <button onclick="ticketQuantityChange(true , 'economyClassTicket');" class="plus-btn"><span>+</span></button>
-                        <button onclick="ticketQuantityChange(false , 'economyClassTicket');" class="plus-btn"><span>-</span></button>
+                        <button onclick="ticketQuantityChange(true , 'firstClassTicket')" class="plus-btn"><span>+</span></button>
+                        <button onclick="ticketQuantityChange(false , 'firstClassTicket');" class="plus-btn"><span>-</span></button>
                     </div>
                 </div>
+                    <div class="input-group f-class">
+                        <div>
+                            <label for="">Economy ($100)</label>
+                            <input id="economyClassTicket" class="inp-style inp-width" value="0" type="number" min="0" name="">
+                        </div>
+                        <div class="plus-minus-btn">
+                            <button onclick="ticketQuantityChange(true , 'economyClassTicket');" class="plus-btn"><span>+</span></button>
+                            <button onclick="ticketQuantityChange(false , 'economyClassTicket');" class="plus-btn"><span>-</span></button>
+                        </div>
+                    </div>
 
-            </div>
-            <div class="calculations">
-                <div class="amount">
-                    <div class="left">
-                        <p>Subtotal</p>
-                    </div>
-                    <div class="right">
-                        <p id="subTotal">$00</p>
-                    </div>
                 </div>
+                <div class="calculations">
+                    <div class="amount">
+                        <div class="left">
+                            <p>Subtotal</p>
+                        </div>
+                        <div class="right">
+                            <p id="subTotal">$00</p>
+                        </div>
+                    </div>
 
-                <div class="amount">
-                    <div class="left">
-                        <p>Charge 10% VAT</p>
+                    <div class="amount">
+                        <div class="left">
+                            <p>Charge 10% VAT</p>
+                        </div>
+                        <div class="right">
+                            <p id="tax-amount">$00</p>
+                        </div>
                     </div>
-                    <div class="right">
-                        <p id="tax-amount">$00</p>
+                    <hr>
+                    <div class="amount">
+                        <div class="left">
+                            <h4>Total</h4>
+                        </div>
+                        <div class="right">
+                            <p id="grand-total">$00</p>
+                        </div>
                     </div>
                 </div>
-                <hr>
-                <div class="amount">
-                    <div class="left">
-                        <h4>Total</h4>
-                    </div>
-                    <div class="right">
-                        <p id="grand-total">$00</p>
-                    </div>
-                </div>
-            </div>
-            <button class="btn-style">Book Now</button>
+                <button id="bookButton" class="btn-style">Book Now</button>
+           </div>
+           <div id="confirm-area">
+                <h3>Thank you for shopping  with us!!</h3>
+                <p>We have finished processing your order.</p>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Tickets</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>First Class </td>
+                            <td id="firstClassQuantity">00</td>
+                            <td id="firstClassPrice">00</td>
+                        </tr>
+                        <tr>
+                            <td>Economy</td>
+                            <td id="economyClassQuantity">00</td>
+                            <td id="economyClassPrice">00</td>
+                        </tr>
+                        <tr class="active-row">
+                            <td>Total</td>
+                            <td id="totalTicket">00</td>
+                            <td id="totalTicketPrice">00</td>
+                        </tr>
+                        <!-- and so on... -->
+                    </tbody>
+                </table>
+           </div>
         </div>
     </main>
 
