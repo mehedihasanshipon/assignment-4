@@ -19,7 +19,7 @@ function ticketQuantityChange(isIncrease,ticketClassName){
 function totalCalculate(){
     const firstClassCount = getInput('firstClassTicket');
     const economyClassCount = getInput('economyClassTicket');
-    const totalTicket = firstClassCount + economyClassCount;
+    var totalTicket = firstClassCount + economyClassCount;
     const totalPrice = firstClassCount * 150 + economyClassCount * 100;
     document.getElementById('subTotal').innerText = '$' + totalPrice;
     const tax = Math.round(totalPrice * 0.1);
@@ -27,11 +27,11 @@ function totalCalculate(){
     const grandTotal = totalPrice + tax;
     document.getElementById('grand-total').innerText = '$' + grandTotal;
     document.getElementById('firstClassQuantity').innerText = firstClassCount;
-    document.getElementById('firstClassPrice').innerText = firstClassCount * 150;
+    document.getElementById('firstClassPrice').innerText ='$' +  firstClassCount * 150;
     document.getElementById('economyClassQuantity').innerText = economyClassCount;
-    document.getElementById('economyClassPrice').innerText = economyClassCount * 100;
+    document.getElementById('economyClassPrice').innerText ='$' +  economyClassCount * 100;
     document.getElementById('totalTicket').innerText = totalTicket;
-    document.getElementById('totalTicketPrice').innerText = totalPrice;
+    document.getElementById('totalTicketPrice').innerText ='$' +  totalPrice;
 }
 
 // Get input value function
@@ -41,7 +41,8 @@ function getInput(id){
     return ticketCount;
 }
 //Ticketing area and confirm-area display none and block section
-document.getElementById('bookButton').addEventListener('click',function(){
+// After clicking Book Now button you can check dynamically changed ticket quantity and price 
+document.getElementById('bookNowButton').addEventListener('click',function(){
     const ticketArea = document.getElementById('ticket-area');
     ticketArea.style.display = 'none';
     const confirmArea = document.getElementById('confirm-area');
@@ -52,4 +53,9 @@ document.getElementById('confirmButton').addEventListener('click',function(){
     ticketArea.style.display = 'block';
     const confirmArea = document.getElementById('confirm-area');
     confirmArea.style.display = 'none';
+    document.getElementById('firstClassTicket').value = 0;
+    document.getElementById('economyClassTicket').value = 0;
+    document.getElementById('subTotal').innerText = 0;
+    document.getElementById('tax-amount').innerText = 0;
+    document.getElementById('grand-total').innerText = 0;
 })

@@ -118,6 +118,7 @@ nav ul li a:hover, a.active{
     box-shadow: 5px 5px 60px gray;
     padding: 5px;
     font-weight: bold;
+    cursor: pointer;
 }
 .btn-style{
     display: block;
